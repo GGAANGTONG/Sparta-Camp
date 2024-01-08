@@ -1,0 +1,26 @@
+body {
+  background-color: rgb(192, 211, 222);
+  font-family: "Pacifico", cursive;
+  font-family: "Single Day", cursive;
+}
+
+.card {
+  height: 100%;
+  background-color: rgb(77, 103, 219);
+}
+
+#title {
+  width: 100%;
+  background-image: url(https://media.istockphoto.com/id/1090388858/ko/%EC%82%AC%EC%A7%84/%EC%B9%B4%EB%A9%94%EB%9D%BC%EB%8A%94-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EC%9D%98-%EA%B7%B8%EB%A3%B9%EC%9D%98-%EC%8B%A4%EB%A3%A8%EC%97%A3.jpg?s=2048x2048&w=is&k=20&c=VuGE2L1MRYBrCYRZa8kaN2glHPx4fE50B8TbFjxOKP4=);
+  background-position: center;
+  background-size: cover;
+}
+
+#cards {
+  width: 95%;
+  margin: 5px auto 5px auto;
+}
+
+#movieFinderHouse {
+  width: 45%;
+}
