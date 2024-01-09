@@ -25,7 +25,7 @@ fetch("https://api.themoviedb.org/3/configuration", options)
           let vote_average = card.vote_average;
           let id = card.id;
 
-          let poster_url = `${config.images.base_url}${config.images.poster_sizes[3]}${poster_path}
+          let poster_url = `${config.images.base_url}${config.images.poster_sizes[4]}${poster_path}
                         `;
           //위에 세 요소는 붙어 있어야 함
 
@@ -33,7 +33,7 @@ fetch("https://api.themoviedb.org/3/configuration", options)
           //이를 통해 temp_html에 .cards의 정보를 루프 돌리며 쌓음
           temp_html += `   
                         <div class="col">
-                        <div class="card h-100" type = "Button" onclick = "showDetails(${id})" style = >
+                        <div class="card" type = "Button" data-movie-id = "${id}" style = >
                         <img src= ${poster_url} class="card-img-top" alt="...">
                         <div class= "card-body" >
                             <h5 class="card-title" style = "font-weight: bold; font-size: 195%">${title}</h5>
@@ -49,10 +49,6 @@ fetch("https://api.themoviedb.org/3/configuration", options)
       });
   })
   .catch((err) => console.error(err));
-
-function showDetails(id) {
-  alert(`ID는 ${id}입니다.`);
-}
 
 document.getElementById("wordFilter").addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
@@ -126,7 +122,7 @@ function movieChanging() {
             //이를 통해 temp_html에 .cards의 정보를 루프 돌리며 쌓음
             temp_html += `   
                         <div class="col">
-                        <div class="card" type = "Button" onclick = "showDetails(${id})">
+                        <div class="card" type = "Button" data-movie-id = "${id}"}>
                         <img src= ${poster_url} class="card-img-top" alt="...">
                         <div class= "card-body" >
                             <h5 class="card-title" style = "font-weight: bold; font-size: 195%">${title}</h5>
@@ -147,3 +143,26 @@ document.getElementById("movieChanger").addEventListener("click", movieChanging)
 document.getElementById("goToFirstPage").addEventListener("click", () => {
   location.reload();
 });
+
+document.getElementById("cards").addEventListener("click", function () {
+  const card = event.target.closest(".card"); //수십개의 카드 클래스 요소 중 가장 가까운 놈으로 간다 = 자기 자신한테 간다
+  if (card) {
+    const id = card.getAttribute("data-movie-id"); //getAttribute는 속성을 가져와주는 API, 근데 아까는 "data-movie-id"의 속성이 설정돼 있지 않았음.
+    showDetails(id);
+  }
+});
+
+function showDetails(id) {
+  alert(`ID는 ${id}입니다.`);
+}
+
+// const cards = document.getElementsByClassName("card");
+// for (const card of cards) {
+//   card.addEventListener("click", function () {
+//     const id = this.getAttribute("data-movie-id");
+//     showDetails(id);
+//   });
+// }
+// // function showDetails(id) {
+//   alert(`ID는 ${id}입니다.`);
+// }
