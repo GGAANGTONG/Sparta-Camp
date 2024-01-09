@@ -9,3 +9,6 @@ logs
 
 # Output of 'npm pack'
 *.tgz
+
+#C:\\Users\\3050ti\\Desktop\\Coding-Camp\\2nd. Assignment
+.options.js

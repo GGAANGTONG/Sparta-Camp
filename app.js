@@ -1,4 +1,4 @@
-import { options, fetchConfiguration, fetchMovieData } from "./appApi.js";
+import { fetchConfiguration, fetchMovieData } from "./appApi.js";
 
 //configuration API
 fetchConfiguration().then((config) => {
